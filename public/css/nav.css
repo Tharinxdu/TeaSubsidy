@@ -91,7 +91,7 @@ div.nav{
     text-align: center;
 }
 
-.sign{
+.logged-sign, .sign{
     display: flex;
     align-items: center;
 }
@@ -115,11 +115,19 @@ div.nav{
     appearance: button;
     text-decoration: none;
 }
-.sign .vr{
+.logged-sign .vr , .sign .vr{
     margin: 0 10px;
     height: 40px;
 }
-.sign a:nth-child(3):hover{
+
+.sign a:hover{
+    color: #003554;
+    background-color: white;
+    font-weight: 600;
+    border: 1px solid;
+}
+
+.logged-sign a:nth-child(3):hover{
     color: #003554;
     background-color: white;
     font-weight: 600;

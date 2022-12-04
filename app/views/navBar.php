@@ -20,7 +20,7 @@
                 <img src="../images/navbar/Menu.svg" alt="" srcset="">
         <?php if(isset($_SESSION['User'])){ ?>
 
-                <div class="sign">
+                <div class="logged-sign">
                     <a href="../user/profile" class="profile"><img src="../images/<?php echo $data['dp_location'] ?>" alt="dp"></a>
                     <div class=vr></div>
                     <a href="../user/signout" class="sign-btn">Sign&nbsp;Out</a>
@@ -58,7 +58,7 @@
                         <div class="nav-text">FAQ</div>
                     </a>
                 </div>
-                <div class="sign">
+                <div class="logged-sign">
                     <a href="../user/profile" class="profile"><img src="../images/<?php echo $data['dp_location'] ?>" alt="dp"></a>
                     <div class=vr></div>
                     <a href="../user/logout" class="sign-btn">Sign&nbsp;Out</a>
