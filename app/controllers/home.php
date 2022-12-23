@@ -45,88 +45,72 @@ class Home extends Controller
         $this->view('home/register');
     }
 
-    public function login(){
+    public function login()
+    {
+        //$user = $this->model('User');   //'User' is the name of the model php file. then model function'll require php file named 'User.php'
+        //$user->name = $name ? $name : 'Admin';
+        // print_r($user);      //a User object
+        // echo $user->name; we do not render things from controllers in MVC ! ! ! let rendering to do by views
+        
+        // session_start();
 
         
-        /*
-            $user = $this->model('User')    $user is an User object   
-            'User' is the name of the model php file.
-            then model function'll require php file named 'User.php'
-            
-            echo $user->name; we do not render things from controllers in MVC ! ! ! 
-            let rendering to do by views
-
-            ! ! ! DO NOT ECHO ANY FROM CONTROLLERS (when deploying)
-        */
-
-        $userModel  = $this->model('LoginModel');        //got a user model like in node
         
         if(isset($_SESSION['User'])){
             
-            header("Location: ../user/index");
-            /*
-                user class for any user *** i.e pass to user controller or redirect again***
-                user class will handle any `USER` and common functions to all users
-                it'll redirect any `USER` to his path forbbiding/blocking to go to another users path
-
-                // currently this will redirect to hard coded locations
-                // should imrove to redirect user to previous location. 
-                // HINT : use prev_link in base controller for each user(Already commented)
-
-            */
+            header("Location: ../user/index");           //implement for any user *** i.e pass to user controller or redirect again***
         }
 
-        $role = "";
+        $userModel  = $this->model('LoginModel');        //got a user model like in MERN
+
         $email = "";
         $password = "";
         $user = "";
+        $msg = "";
 
         if(isset($_POST['Submit'])){
 
-            $role = $this->input_verify($_POST['dropdown']);
             $email = $this->input_verify($_POST['email']);
             $password = md5($this->input_verify($_POST['password']));
             unset($_POST['Submit']);
-            if($role == "none")
-            {
-                echo "<div class=\"red msg\">You Must Select a Role.</div>";
+            
+
+            $table = 'Users';
+            $result = $userModel->findbycredentials($table , [$email , $password]);
+
+            if($result == -1){
+                //wrong
+                $msg = "<div class=\"red msg\">Invalid Username or Password.</div>";
             }
             else
             {
-                $table = 'Users';
-                $result = $userModel->findbycredentials($table , [$email , $password , $role]);
+                //login
+                $user = $result;
 
-                if($result == -1){
-                    //wrong credentials
-                    echo "<div class=\"red msg\">Invalid Username or Password.</div>";
-                }
-                else
-                {
-                    //login
-                    $user = $result;
+                // Session Management
+                $_SESSION['User'] = $user; //$user['Fname'] . " " . $user['Lname'];
+                $_SESSION['Role'] = $user['role'];//use to redirect user to path by user role in loader.php
+                //create new csrf token
 
-                    // Session Management
-                    $_SESSION['User'] = $user;
-                    $_SESSION['Role'] = $user['role'];//use to redirect user to path by user role in user.php
-                    //create new csrf token
+                // echo "username = ".$_SESSION['User'];
+                // echo "Role = ".$_SESSION['Role'];
 
-                    if(!empty($role))
-                    {
-                        header("Location: ../user/index");
-                    }
-                    else
-                    {
-                        echo "<div class=\"red msg\">You Must Select a Role.</div>";
-                    }
-                }
+                // if(!empty($role))
+                // {
+                //     header("Location: ../user/index");
+                // }
+                // else
+                // {
+                //     echo "<div class=\"red msg\">You Must Select a Role.</div>";
+                // }
+
+                header("Location: ../user/index");
             }
 
             
         }
 
-        echo "home/login<br>";
-        $this->view('home/login');
-
+        $this->view('home/login' , ['msg' => $msg]);
     }
 
 }

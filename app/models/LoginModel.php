@@ -18,7 +18,7 @@ class LoginModel
     public function findBycredentials($table , $credentials= [])        //retrieve type
     {
         
-        $query = "SELECT * FROM $table WHERE userEmail = '$credentials[0]' AND UserPassword = '$credentials[1]' AND role = '$credentials[2]' LIMIT 1";
+        $query = "SELECT * FROM $table WHERE userEmail = '$credentials[0]' AND UserPassword = '$credentials[1]' LIMIT 1";
         $result = mysqli_query($this->conn , $query);
         if(mysqli_num_rows($result) == 1)
         {
@@ -32,7 +32,7 @@ class LoginModel
         }
     }
 
-    public function create($table , $data)// $data = [ column1_name => insert_data , column2_name => insert_data , . . . ]
+    public function create($table , $data)      // $data = [ column1_name => insert_data , column2_name => insert_data , . . . ]
     {
         $values = "";
         $columns = "";
@@ -53,7 +53,7 @@ class LoginModel
         $values = rtrim($values , " , ");
 
         $query = "INSERT INTO $table ( $columns ) VALUES ( $values ) ";
-
+        // print_r($query);
         //run query
         $result = mysqli_query($this->conn,$query);
         if(mysqli_num_rows($result) == 1)

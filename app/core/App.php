@@ -6,7 +6,7 @@ class App
 
     protected $method = 'index';
 
-    protected $params = [];
+    protected $params = [];     //think about more generally c.j.
     
     // when we call relevant url after "TeaSubsidy/Public" it will call App instance constructor
     public function __construct()
