@@ -29,6 +29,10 @@
         }
         public function Notifications()
         {
+            if(!isset($_SESSION['User']))
+            {
+                header("Location: ../home/login");
+            }
             echo "user/Notifications<br>";
             if($_SESSION['Role'] == "Head Office")
             {
@@ -41,6 +45,10 @@
         }
         public function FAQ()
         {
+            if(!isset($_SESSION['User']))
+            {
+                header("Location: ../home/login");
+            }
             if($_SESSION['Role'] == "Head Office")
             {
                 header("Location: ../HeadOffice/FAQ");
@@ -67,6 +75,10 @@
         }
         public function profile()
         {
+            if(!isset($_SESSION['User']))
+            {
+                header("Location: ../home/login");
+            }
             echo "user/profile";
             $this->view("user/profile");
         }
