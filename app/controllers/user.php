@@ -62,7 +62,7 @@
 
             session_destroy();
             //generate session token again
-            header("Location: /mvc/public/home/login");
+            header("Location: /TeaSubsidy/public/home/login");
 
         }
         public function profile()

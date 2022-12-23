@@ -118,6 +118,101 @@ class HeadOffice extends Controller
         $this->view("headoffice/manageRegionalOffices" , ['heading'=>"Regional Offices",'data'=>$SearchResults,'msg'=>$msg]);      
     }
 
+    public function newregionaloffice(){
+        if($_SESSION['Role']!="Head Office")
+        {
+            header("Location: ../user/index");
+        }
+        // echo "Add new R office<br>";
+
+        $regionalModel = $this->model("regionModel");
+        $msg = "";
+
+        if(isset($_POST['ADD']))
+        {
+
+            // Validate inputs
+            $email = $this->input_verify($_POST['email']);
+            $password = md5($this->input_verify($_POST['password']));
+            $contact = $this->input_verify($_POST['contactNo']);
+            $region = $this->input_verify($_POST['Region']);
+
+            //check for null values
+            if(empty($email) || empty($password) || empty($contact) || empty($region))
+            {
+                $msg = "<div class='msg red'>All fields must be filled. Enter only valid charactors.(special charactors like '\','spaces','>/</?' can be the cause of this ! ! !)</div>";
+            }
+            else
+            {
+                                // user <-- RO
+                $UserRO['userID'] = "REG".date("YnjGis");
+                $UserRO['userEmail'] = $email;
+                $UserRO['userName'] = $region."MNG";
+                $UserRO['userPassword'] = $password;
+                $UserRO['contactNum'] = $contact;
+                $UserRO['role'] = "regional Office";
+
+                // user <-- Acc
+                $UserAcc['userID'] = "ACC".date("YnjGis");
+                $UserAcc['userEmail'] = $region."Accountant@yourmail.com";
+                $UserAcc['userName'] = $region."Acc";
+                $UserAcc['userPassword'] = $password;
+                $UserAcc['contactNum'] = $contact;
+                $UserAcc['role'] = "Accountant";
+
+                // user <-- Clk
+                $UserClk['userID'] = "Clk".date("YnjGis");
+                $UserClk['userEmail'] = $region."Clerk@yourmail.com";
+                $UserClk['userName'] = $region."Clk";
+                $UserClk['userPassword'] = $password;
+                $UserClk['contactNum'] = $contact;
+                $UserClk['role'] = "Clerk";
+
+                $Ro['firstName'] = $Acc['firstName'] = $Clk['firstName'] =  "userF";
+                $Ro['lastName'] = $Acc['lastName'] = $Clk['lastName'] = "userL";
+                $Ro['userID'] = $UserRO['userID'];
+                $Acc['userID'] = $UserAcc['userID'];
+                $Clk['userID'] =  $UserClk['userID'];
+                $Acc['employeeID'] = $region."accEID";  //temporary
+                $Clk['employeeID'] = $region."clerkEID";//temp
+
+                $Ro['region'] = $region;
+                $Ro['Clerk_userID'] = $UserClk['userID'];
+                $Ro['Accountant_userID'] = $UserAcc['userID'];
+
+                $Newuser = $regionalModel->findByRegion(['region' => $Ro['region'] , 'email' => $email]);
+                // var_dump($user);
+                if($Newuser == -2){
+                    //database failure
+                    $msg =  "<div class='msg red'>Database Failuire!. Try Again or contact your Administrator.</div>";
+                }
+                elseif($Newuser != -1){
+                    //already
+                    $msg =  "<div class='msg red'>Already Registered. Try Defferent (not used before) Region name and email</div>";
+                }
+                else{
+                    $added =$regionalModel->create(['UserRO'=> $UserRO , 'UserAcc'=>$UserAcc , 'UserClk'=>$UserClk , 'Ro'=>$Ro,'Acc'=>$Acc,'Clk'=>$Clk]);
+                    if($added == 1)
+                    {
+                        $msg = "<div class='msg green'>Add '{$Ro['region']}' Regional Office Successfully . . . </div>";
+                    }
+                    elseif($added = -1)
+                    {
+                        $msg = "<div class='msg red'>Error Occured. Try Again or Contact Administrator...</div>";
+                    }
+                    else
+                    {
+                        $msg = "<div class='msg red'>CRITICAL Error Occured.Contact Administrator immediately...</div>";
+                    }
+                }
+            }
+
+
+        }
+
+        $this->view("headoffice/newRoOffice" , ['heading' => "Add New Regional Office" , 'msg' => $msg]);
+    }
+
 }
 
 ?>
