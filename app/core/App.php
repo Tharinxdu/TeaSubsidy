@@ -24,7 +24,7 @@ class App
             }
             else
             {
-                echo "<h1>Not a 2Valid Route. Not Found Error ( 404 )</h1>";
+                echo "<h1>Not a Valid controller Route. Not Found Error ( 404 )</h1>";
                 exit;
             }
             
@@ -58,7 +58,7 @@ class App
             }
             else
             {
-                echo "<h1>Not a 1Valid Route. Not Found Error ( 404 )</h1>";
+                echo "<h1>Not a Valid method Route. Not Found Error ( 404 )</h1>";
                 exit;
             }
         }
