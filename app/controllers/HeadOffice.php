@@ -213,6 +213,43 @@ class HeadOffice extends Controller
         $this->view("headoffice/newRoOffice" , ['heading' => "Add New Regional Office" , 'msg' => $msg]);
     }
 
+    public function viewR(){
+        if($_SESSION['Role']!="Head Office")
+        {
+            header("Location: ../user/index");
+        }
+        // echo "view Regional office<br>";
+
+        $regionalModel = $this->model("regionModel");
+        $data = [];
+        $msg = "";
+
+        if(isset($_POST['view']))
+        {
+            $id = $_POST['id'];
+            unset($_POST['view']);
+            // echo "id = ".$id."<br>";
+            $data = $regionalModel->findById($id);
+
+            if($data == -2)
+            {
+                $msg = "<div class='msg red'>Error Occured.Try Again or Contact Administrator immediately...</div>";
+            }
+            elseif($data == -1)
+            {
+                $msg = "<div class='msg red'>Error Occured.Try Again or Contact Administrator immediately...</div>";
+            }
+            $this->view("headoffice/viewRoffice" , ['data' => $data , 'msg'=>$msg]);
+            
+        }
+        else
+        {
+            header("Location: manage_regional_offices");
+        }
+
+        
+    }
+
 }
 
 ?>
