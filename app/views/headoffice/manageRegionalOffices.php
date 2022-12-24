@@ -1,12 +1,12 @@
 
 <!-- css -->
-<link rel="stylesheet" href="../css/index.css">
+<!-- <link rel="stylesheet" href="../css/index.css"> -->
 
     <h2 class="header"><?= $data['heading'] ?></h2>
     
     <div class="search">
         <form action="" method="GET">
-            <input type="text" name="search" placeholder="Search">
+            <input class="search-input" type="text" name="search" placeholder="Search">
             <button class="search-btn" type="submit">Search</button>
             
             <!-- <img src="" alt="search" srcset=""> -->
@@ -21,7 +21,7 @@
     //     }
     // ?>
 
-    <a href="newregionaloffice"><button class="btn add">Add new Regional Office</button></a>
+    <a href="newregionaloffice"><button class="add btn large">Add new Regional Office</button></a>
 
     <div class="container">
         <div class="columns gray">
@@ -58,18 +58,17 @@
                     <div class="selection-btns">
                         <form action="viewR" method="POST">  <!-- pass to new controller -->
                             <input type="hidden" name="id" value="<?php echo $row['userID']; ?>">
-                            <button class="btn" type="submit" name="view">View</button>
+                            <button class="btn small" type="submit" name="view">View</button>
                         </form>
                         <div class="remove-btn">
                             <input type="hidden" name="id" value="<?php echo $row['userID']; ?>">
-                            <button class="btn">Remove</button>
+                            <button class="btn small">Remove</button>
                         </div>
                         
                         
                     </div>
                 
                 </div>
-
 
         <?php   } 
         ?>
@@ -81,9 +80,9 @@
             Are you sure. you want to delete the regional office.
         </div>
         <form action="" method="POST">
-            <button class="btn" type="submit" name="remove">Remove</button>
+            <button class="btn small" type="submit" name="remove">Remove</button>
         </form>
-        <button class="btn">Cancle</button>
+        <button class="btn small">Cancle</button>
     </div>
 
 

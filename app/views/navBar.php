@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tea Subsidy System</title>
         <!-- css -->
-        <link rel="stylesheet" href="../css/nav.css">
+        <link rel="stylesheet" href="../css/style.css">
 
         <!-- google fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -1,0 +1,591 @@
+*{
+    box-sizing: border-box;
+}
+
+/* HTML Elements */
+
+/* links */
+a{
+    text-decoration: none;
+    /* color: #003554;         new from add new regional office */
+}
+a:link , a:active{
+    color:white;
+}
+a:visited , a:hover{
+    font-weight: bold;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    /* height: 100%; */
+    margin-top: 60px;       /* temporary  */
+    position: relative;
+}
+
+button{
+    cursor: pointer;
+}
+form{
+    margin: 0;
+}
+
+input:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* form */
+/* form{
+    width: 100%;
+    height: 500px;
+} */
+input , select {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    font-size: 1rem;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    background: #f1f1f1;
+    text-decoration: none;
+}
+h1{ 
+    font-size: 30px;
+}
+hr{
+    border: 1px solid #003554;
+    margin-bottom: 25px;  
+}
+input:focus {
+    background-color: #ddd;
+    outline: none;
+}
+select {
+    appearance: none;
+    background-image: none;
+    height: 100%;
+    padding: 20px 0 20px 20px;
+    color: black;
+    outline: none;
+}
+
+
+
+
+
+/* .header{
+    text-align: center;
+} */
+
+
+/* User Defined selectors */
+
+.add{
+    position: relative;
+    left: 80%;
+}
+.addform{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+.alitems{
+    align-items: flex-start;
+}
+
+
+.bar{
+    display: flex;
+    align-items: center;
+}
+.bar .nav.item{
+    padding: 0 15px;
+    margin: 0 15px;
+    /* height: 40px; */
+    border: none;
+}
+.bar .nav.item.active{
+    border-bottom: 1px solid;
+}
+.bar .nav.item div{
+    padding-left:5px;
+}
+.bar a:link , .bar a:visited{
+    color: #003554;
+}
+.bar a:hover:not(.active) , .bar a:active:not(.active) {
+    border-radius: 15px;
+    /* background-color: #555; */
+    background-color: white;
+    color: #003554;
+}
+.bar .nav .nav-text{
+    text-align: center;
+}
+/* card body clickable */
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+.btn{
+    background-color: #003554;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+.btn:hover{
+    border: 1px solid;
+    background-color: white;
+    color: #003554;
+}
+.card{
+    border-radius: 10px;
+    border:1px solid black;
+    width: 360px;
+    height: 380px;
+    margin: 0 15px 15px ;
+}
+/* card description */
+.card-description{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+.card-description .topic{
+    font-size: 1rem;
+    font-weight:bold;
+}
+.card-description .content{
+    font-size: 0.8rem;
+}
+/* card header */
+.card-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    height: 12%;
+}
+.card:hover{
+    opacity: 90%;
+    font-style: normal;
+}
+/* card-image */
+.card-image img{
+    width: inherit;
+    height: max-content;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.container{
+    margin: 85px 15px 15px;
+}
+/* manage regional offices */
+.container{
+    margin: 0 15px;
+}
+.center{
+    align-self: center;
+}
+.details{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 20px 0 0;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 1% 2%;
+}
+.details:nth-child(7){
+    margin-bottom: 50px;
+}
+
+.flex-body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    align-items: center;
+    width: inherit;
+    height: inherit;
+    margin: 30px 30px 0;
+    padding: 30px 15px;
+}
+.flex-box{
+    margin: 40px 20px 60px;
+    display: flex;
+}
+.form-box{
+    padding: 0 20px 0 40px;
+}
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 1rem;
+}
+
+div.green{
+    background-color: #00ff2ac0;
+    color: #003554;
+}
+.gray{
+    color: gray;
+    border-color: gray;
+}
+
+.header{
+    width: 100%;
+    text-align: center;
+    color: #003554;
+}
+
+.large{
+    width: 15%;
+    height: 60px;
+    padding: 0 20px;
+    margin: 10px 0 10px;    /* Need to change - don't add margins to buttons like stuff. instead add it tothe container that contains it */
+}
+.left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 500px;
+    flex-basis:50px;
+    flex-grow:1;
+    flex-shrink: 1;
+    border-right:1px solid;
+}
+.left img{
+    width:580px;
+    height:500px;
+}
+/* form */
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+.login-btn {
+    background-color: #003554;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 1;
+}
+
+.login-btn:hover {
+    opacity: 0.9;
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logged-sign a:nth-child(3):hover{
+    color: #003554;
+    background-color: white;
+    font-weight: 600;
+    border: 1px solid;
+}
+
+.logged-sign .vr , .sign .vr{
+    margin: 0 10px;
+    height: 40px;
+}
+
+.logged-sign, .sign{
+    display: flex;
+    align-items: center;
+}
+
+
+.menu{
+    display: none;
+    position: fixed;
+    left : 0;
+    top: 0;
+    width: 100%;
+    background-color: #DEFFF5;
+    height: 60px;
+    padding: 10px 26px;
+}
+div.msg{
+    text-align: center;
+    padding: 5px 15px;
+    /* width: 100%; */
+    border-radius: 5px;
+    margin: 20px 30px 10px;
+}
+.mr0{
+    margin: 0;
+}
+.mrtop20{
+    margin-top: 20px;
+}
+/* hr{
+    display: none;
+} */
+
+/* navigation Bar */
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #DEFFF5;
+    border-bottom: 1px solid;
+    padding: 0 26px;
+    max-width:100%;
+    height:60px;
+    z-index: 1;
+}
+.nav .vr{
+    margin: 0 10px;
+    height: 50px;
+}
+div.nav{
+    padding: 0 26px 5px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+
+.pad0{
+    padding:0;
+}
+
+.pop-up{
+    display: none;
+    position: absolute;
+    border-radius: 10px;
+    left: 50%;
+    top: 50%;
+    height: 200px;
+    width: 500px;
+    background-color: #DEFFF5;
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    transform: translate(-50%, -50%);
+}
+
+/* msg */
+div.red{
+    background-color: #ff000090;
+    color: white;
+}
+
+.right{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: auto;
+    height: 500px;
+    flex-basis:50px;
+    flex-grow:1;
+    flex-shrink: 1;
+}
+.right h2{
+    margin-top: 5px;
+}
+/* .right p{
+    margin-bottom: 50px;
+} */
+.right::-webkit-scrollbar {
+    display: none;
+}
+.right span a:link , .right span a:visited , .right span a:hover , .right span a:active{
+    color:#003554;
+}
+
+
+/* buttons */
+.search{
+    display: flex;
+    justify-content: center;
+}
+.search-btn{
+    background: #f1f1f1;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    padding: 20px 15px;
+    font-size: 1rem;
+}
+
+.search-btn:hover{
+    background-color: #003554;
+    color: white;
+}
+
+.select {
+    position: relative;
+    display: block;
+    width: 400px;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: .25em;
+}
+.selection-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+.search-input{
+    width: 400px;
+    padding: 20px 0 20px 20px;
+    border-radius: 10px 0 0px 10px;
+}
+
+.selection-btns{
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+}
+.sign-btn{
+    padding: 5px 15px;
+    border-radius: 10px;
+    color: white;
+    background-color: #003554;
+    border: 1px solid #003554;
+
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+}
+
+
+.sign a:hover{
+    color: #003554;
+    background-color: white;
+    font-weight: 600;
+    border: 1px solid;
+}
+.signin {
+    text-align: center;
+}
+.small{
+    width: 100px;
+    height: 30px;
+}
+
+.vr{
+    border-left: 2px solid;
+    display: inline-block;
+}
+
+
+/* media queries */
+
+@media screen and (max-width: 1360px){
+    .left img{
+        width: 500px;
+    }
+  }
+
+@media screen and (max-width: 1200px){
+    .left img{
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 1044px) {
+    .bar a.nav{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .container .flex-box .left{
+        display: none;
+    }
+    .right{
+        border: none;
+    }
+    .right{
+        justify-content: center;
+    }
+}
+
+
+
+@media screen and (max-width: 938px) {
+    .bar a.nav.item{
+        width: 100%;
+        margin: 20px 15px 0;
+        font-size: 26px;
+        height: 80px;
+    }
+    .bar a.nav.item img{
+        width: 50px;
+        height: 50px;
+    }
+
+    div.nav{
+        display: none;
+        margin-top: 60px;
+        width: 100%;
+        height: inherit;
+        flex-direction: column;
+        justify-content: start;
+        align-items:center;
+    }
+    div.nav .logo{
+        display: none;
+    }
+    .menu{
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid;
+    }
+
+    .bar{
+        flex-direction: column;
+        justify-content:space-around;
+        align-items: center;
+        height: 400px;
+    }
+    div.nav .sign{
+        display: none;
+    }
+
+    hr{
+        display: block;
+        border: 1px solid #003554;
+        margin-bottom: 25px; 
+        width: 100%;
+    }
+    .nav .logo .nav-text{
+        display: none;
+    }
+    .logo .vr{
+        display: none;
+    }
+    .container{
+        width: 100%;
+        float: right;
+    }
+}

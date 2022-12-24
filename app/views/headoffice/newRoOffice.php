@@ -1,5 +1,5 @@
 <!-- css -->
-<link rel="stylesheet" href="../css/index.css">
+<!-- <link rel="stylesheet" href="../css/index.css"> -->
 
     <h2 class="header"><?= $data['heading'] ?></h2>
     <!-- //msgs -->
@@ -36,7 +36,7 @@
             </div>
             <!-- <p>Region</p>
             <input type="text" name="Region" required> -->
-            <button class="btn mrtop20" type="submit" name="ADD">ADD</button>
+            <button class="btn small center mrtop20" type="submit" name="ADD">ADD</button>
         </form>
     </div>
     <script src="../script/msg.js"></script>
