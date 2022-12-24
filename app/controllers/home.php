@@ -6,7 +6,7 @@ class Home extends Controller
     public function index(){
         if(isset($_SESSION['User']))
         {
-            header("Location: /mvc/public/user/index");
+            header("Location: ../user/index");
         }
         echo "home/index<br>";
         $this->view('home/index');
