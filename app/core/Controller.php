@@ -57,6 +57,34 @@ class Controller
         return $data;
     }
 
+    protected function validateEmail($email){
+        $emailErr = "";
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+          }
+
+        return $emailErr;
+    }
+
+    protected function validatePassword($password){
+        $passwdErr = "";
+        
+        if(strlen($password) <= '8'){
+            $passwdErr = "Your Password Must Contain At Least 8 Characters!";
+        }
+        elseif(!preg_match("#[0-9]+#" , $password)){
+            $passwdErr = "Your Password Must Contain At Least 1 Number!";
+        }
+        elseif(!preg_match( "#[A-Z]+#" , $password)){
+            $passwdErr = "Your Password Must Contain At Least 1 Capital Letter";
+        }
+        elseif(!preg_match("#[a-z]+#" , $password)){
+            $passwdErr = "Your Pasword Must Contain At Least 1 Lowercase Letter";
+        }
+
+        return $passwdErr;
+    }
+
 }
 
 ?>

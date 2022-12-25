@@ -25,10 +25,10 @@
                             ?>
 
                             <label for="email"><b>Email</b></label>
-                            <input type="email" placeholder="Enter Your Email" name="email" id="email" required>
+                            <input type="text" placeholder="Enter Your Email" name="email" id="email" >
 
                             <label for="psw"><b>Password</b></label>
-                            <input type="password" placeholder="Enter Your Password" name="password" id="password" required>
+                            <input type="password" placeholder="Enter Your Password" name="password" id="password" >
                             <hr>
                             
                             <button type="submit" name="Submit" class="login-btn">Login</button>

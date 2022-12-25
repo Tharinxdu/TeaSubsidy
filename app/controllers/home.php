@@ -70,44 +70,55 @@ class Home extends Controller
 
         if(isset($_POST['Submit'])){
 
-            $email = $this->input_verify($_POST['email']);
-            $password = md5($this->input_verify($_POST['password']));
-            unset($_POST['Submit']);
-            
-
-            $table = 'Users';
-            $result = $userModel->findbycredentials($table , [$email , $password]);
-
-            if($result == -1){
-                //wrong
-                $msg = "<div class=\"red msg\">Invalid Username or Password.</div>";
+            if(empty($_POST['email']) || empty($_POST['password'])){
+                $msg = "<div class=\"red msg\">Please fill all the fields.</div>";
             }
-            else
-            {
-                //login
-                $user = $result;
+            else{
+                $validateError = $this->validateEmail($_POST['email']);
+                if(empty($validateError))
+                {
 
-                // Session Management
-                $_SESSION['User'] = $user; //$user['Fname'] . " " . $user['Lname'];
-                $_SESSION['Role'] = $user['role'];//use to redirect user to path by user role in loader.php
-                //create new csrf token
-
-                // echo "username = ".$_SESSION['User'];
-                // echo "Role = ".$_SESSION['Role'];
-
-                // if(!empty($role))
-                // {
-                //     header("Location: ../user/index");
-                // }
-                // else
-                // {
-                //     echo "<div class=\"red msg\">You Must Select a Role.</div>";
-                // }
-
-                header("Location: ../user/index");
+                    $email = $this->input_verify($_POST['email']);
+                    $password = md5($this->input_verify($_POST['password']));                    
+    
+                    $table = 'Users';
+                    $result = $userModel->findbycredentials($table , [$email , $password]);
+    
+                    if($result == -1){
+                        //wrong
+                        $msg = "<div class=\"red msg\">Invalid Username or Password.</div>";
+                    }
+                    else
+                    {
+                        //login
+                        $user = $result;
+    
+                        // Session Management
+                        $_SESSION['User'] = $user; //$user['Fname'] . " " . $user['Lname'];
+                        $_SESSION['Role'] = $user['role'];//use to redirect user to path by user role in loader.php
+                        //create new csrf token
+    
+                        // echo "username = ".$_SESSION['User'];
+                        // echo "Role = ".$_SESSION['Role'];
+    
+                        // if(!empty($role))
+                        // {
+                        //     header("Location: ../user/index");
+                        // }
+                        // else
+                        // {
+                        //     echo "<div class=\"red msg\">You Must Select a Role.</div>";
+                        // }
+    
+                        header("Location: ../user/index");
+                    }
+                }
+                else{
+                    $msg = "<div class=\"red msg\">".$this->validateEmail($_POST['email'])."</div>";
+                }
+                
             }
-
-            
+            unset($_POST['Submit']);  
         }
 
         $this->view('home/login' , ['msg' => $msg]);
