@@ -216,7 +216,6 @@ select {
 .flex-body{
     display: flex;
     flex-wrap: wrap;
-    justify-content:flex-start;
     align-items: center;
     width: inherit;
     height: inherit;
@@ -255,6 +254,13 @@ div.green{
     width: 100%;
     text-align: center;
     color: #003554;
+}
+
+.justifyCenter{
+    justify-content: center;
+}
+.justifyStart{
+    justify-content:flex-start;
 }
 
 .large{

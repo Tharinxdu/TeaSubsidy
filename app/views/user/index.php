@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../css/index.css">
 
         <h2 class="header"><?= $data[0] ?></h2>
-        <div class="flex-body">
+        <div class="flex-body justifyStart">
             
             <div class="card">
                 <a class="box" href="">
@@ -48,7 +48,7 @@
                 </a>
             </div>
         </div>
-        <div class="flex-body">
+        <div class="flex-body justifyStart">
             <div class="card">
                 <a class="box" href="">
                     <div class="card-image">

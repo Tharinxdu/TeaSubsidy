@@ -6,7 +6,7 @@
     <?php echo $data['msg']; ?>
     <!-- <?//php echo date('YnjGis'); ?> -->
     <p class="header">User name,clerk name , accountant name will be always user. they can change it after login.</p>
-    <div class="flex-body mr0 pad0 alitems">
+    <div class="flex-body mr0 pad0 justifyCenter">
         <?php
         if(strpos($data['msg'] , "green") == false)
         { ?>
