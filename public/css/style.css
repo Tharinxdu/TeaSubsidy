@@ -105,11 +105,12 @@ select {
 .bar .nav.item{
     padding: 0 15px;
     margin: 0 15px;
-    /* height: 40px; */
+    height: 40px;
     border: none;
+    font-weight: bold;
 }
 .bar .nav.item.active{
-    border-bottom: 1px solid;
+    border-bottom: 3px solid;
 }
 .bar .nav.item div{
     padding-left:5px;
@@ -190,6 +191,9 @@ select {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
+.col{
+    flex-direction: column;
+}
 .container{
     margin: 85px 15px 15px;
 }
@@ -226,7 +230,7 @@ select {
     margin: 0 50px 15px ;
 }
 .flex-box{
-    margin: 40px 20px 60px;
+    margin: 75px 20px 20px;
     display: flex;
 }
 .form-box{
@@ -250,6 +254,11 @@ div.green{
     border-color: gray;
 }
 
+h1.main-heading{
+    text-align: center;
+    font-size: 2rem;
+    color: #003554;
+}
 .header{
     width: 100%;
     text-align: center;
@@ -326,7 +335,9 @@ div.green{
     align-items: center;
 }
 
-
+.merriweatherFont{
+    font-family: 'Merriweather', serif;
+}
 .menu{
     display: none;
     position: fixed;
@@ -381,7 +392,20 @@ div.nav{
 .pad0{
     padding:0;
 }
-
+.point{
+    color: #003554;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px 0;
+}
+.point-desc{
+    font-size: 22px;
+    color: black;
+    margin-top: 10px;
+}
 .pop-up{
     display: none;
     position: absolute;

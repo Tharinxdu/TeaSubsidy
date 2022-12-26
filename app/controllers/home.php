@@ -8,7 +8,7 @@ class Home extends Controller
         {
             header("Location: ../user/index");
         }
-        echo "home/index<br>";
+        // echo "home/index<br>";
         $this->view('home/index');
     }
     public function regionaloffices(){

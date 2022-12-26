@@ -17,7 +17,7 @@ class Controller
         //view NavBar
         session_start();
         $dp_location = "";
-        echo "view Navbar from core Controller<br>";
+        // echo "view Navbar from core Controller<br>";
         // if user logged in navBar should show user image
         if(isset($_SESSION['User']))
         {
