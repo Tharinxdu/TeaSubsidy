@@ -216,12 +216,15 @@ select {
 .flex-body{
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-evenly;
+    justify-content:flex-start;
     align-items: center;
     width: inherit;
     height: inherit;
     margin: 30px 30px 0;
     padding: 30px 15px;
+}
+.flex-body .card:not(:first-child){
+    margin: 0 50px 15px ;
 }
 .flex-box{
     margin: 40px 20px 60px;
@@ -359,7 +362,7 @@ div.msg{
 }
 .nav .vr{
     margin: 0 10px;
-    height: 50px;
+    height: 40px;
 }
 div.nav{
     padding: 0 26px 5px;
