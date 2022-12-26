@@ -1,6 +1,12 @@
 <?php
 //if role is HeadOffice user class redirects to here
 
+// Need to implement a method to stop resubmission
+/*
+    use javascript fetch    -> yet good solution
+    or
+    use sessions to submit a form only on time -> not sure about fix back button resubmission
+*/
 
 class HeadOffice extends Controller
 {
@@ -127,23 +133,39 @@ class HeadOffice extends Controller
 
         $regionalModel = $this->model("regionModel");
         $msg = "";
+        $emailValidateError="";
+        $passwdValidateError="";
+        $email = ""; $contact=""; $region ="";
 
         if(isset($_POST['ADD']))
         {
 
             // Validate inputs
             $email = $this->input_verify($_POST['email']);
-            $password = md5($this->input_verify($_POST['password']));
+            $password = $this->input_verify($_POST['password']);
+            $Cpassword = $this->input_verify($_POST['Cpassword']);
             $contact = $this->input_verify($_POST['contactNo']);
             $region = $this->input_verify($_POST['Region']);
 
             //check for null values
             if(empty($email) || empty($password) || empty($contact) || empty($region))
             {
-                $msg = "<div class='msg red'>All fields must be filled. Enter only valid charactors.(special charactors like '\','spaces','>/</?' can be the cause of this ! ! !)</div>";
+                $msg = "<div class='msg red'>All fields must be filled.Enter only valid charactors. Charactors like '\' , 'spaces' , '>' , '<' , '?' can be the cause of this! </div>";
+            }
+            elseif( $password != $Cpassword )
+            {
+                $msg = "<div class='msg red'>Confirmed Password Does Not Match With The Entered Password!</div>";
+            }
+            elseif(!empty($emailValidateError = $this->validateEmail($email))){
+                $msg = "<div class='msg red'>".$emailValidateError."</div>";
+            }
+            elseif(!empty($passwdValidateError = $this->validatePassword($password))){
+                $msg = "<div class='msg red'>".$passwdValidateError."</div>";
             }
             else
             {
+
+                $password = md5($password);
                                 // user <-- RO
                 $UserRO['userID'] = "REG".date("YnjGis");
                 $UserRO['userEmail'] = $email;
@@ -210,7 +232,7 @@ class HeadOffice extends Controller
 
         }
 
-        $this->view("headoffice/newRoOffice" , ['heading' => "Add New Regional Office" , 'msg' => $msg]);
+        $this->view("headoffice/newRoOffice" , ['heading' => "Add New Regional Office" , 'msg' => $msg , 'email' => $email , 'numbr' => $contact , 'region' => $region]);
     }
 
     public function viewR(){
