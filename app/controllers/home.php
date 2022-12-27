@@ -41,7 +41,7 @@ class Home extends Controller
         {
             header("Location: ../user/index");
         }
-        echo "home/register<br>";
+        // echo "home/register<br>";
         $this->view('home/register');
     }
 

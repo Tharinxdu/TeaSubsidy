@@ -64,6 +64,12 @@ input:focus {
     background-color: #ddd;
     outline: none;
 }
+li{
+    margin: 20px 0;
+}
+p{
+    user-select: none;
+}
 select {
     appearance: none;
     background-image: none;
@@ -247,6 +253,14 @@ select {
 .flex-box{
     margin: 75px 20px 20px;
     display: flex;
+}
+.footer{
+    background-color: #DEFFF5;
+    border-top: 1px solid #003554;
+}
+.footer-item{
+    width: 380px;
+    margin: 10px 20px;
 }
 .form-box{
     padding: 0 20px 0 40px;
@@ -576,6 +590,9 @@ div.red{
 }
 .textLeft{
     text-align: left;
+}
+.textRight{
+    text-align: right;
 }
 
 .vr{

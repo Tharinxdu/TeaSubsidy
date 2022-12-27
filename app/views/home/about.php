@@ -1,4 +1,4 @@
-<div class="flex-box col">
+<div class="flex-box col displayHalfHeight">
     <h1 class="header">OVERVIEW</h1>
     <p class="textLeft default-blue textBold">
         Tea Small Holdings Development Authority (TSHDA) was established on 1st February 1977, 
@@ -17,4 +17,37 @@
         The Tea Smallholder Development Society system greatly assists the service provision at the grassroots level by the organization. 
         The society system has a similar hierarchy and operates parallel to the organization.
     </p>
+</div>
+
+<!-- footer -->
+<div class="footer">
+        <div class="flex-box">
+            <div class="fBasis50 col alignCenter">
+                <h2 class="header">Tea Small Holdings Development Authority</h2>
+                <div class="justifyAround default-blue textBold">
+                    <img src="/TeaSubsidy/public/images/footer/Location.svg" alt="img">
+                    <p class="footer-item">Tea Small Holdings Development Authority, 1120 Battaramulla</p>
+                </div>
+                <div class="justifyAround default-blue textBold">
+                    <img src="/TeaSubsidy/public/images/footer/Phone.svg" alt="img">
+                    <p class="footer-item">011 7909 021</p>
+                </div>
+                <div class="justifyAround default-blue textBold">
+                    <img src="/TeaSubsidy/public/images/footer/Mail.svg" alt="img">
+                    <p class="footer-item">info@tshda.gov.lk</p>
+                </div>
+            </div>
+
+            <div class="vr"></div>
+
+            <div class="fBasis50 col alignCenter">
+                <h2 class="header">Quick Links</h2>
+                <ul class="default-blue textBold">
+                    <a href=""><li>Overview</li></a>
+                    <a href=""><li>Contact Details</li></a>
+                    <a href=""><li>Regional Offices</li></a>
+                </ul>
+            </div>
+        </div>
+        <p class="textRight default-blue mr0">2020 © Web Solution by UCSC 2nd Years Group 50</p>        
 </div>
