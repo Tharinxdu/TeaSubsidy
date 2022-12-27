@@ -24,7 +24,7 @@ class Home extends Controller
         {
             header("Location: ../user/index");
         }
-        echo "home/about<br>";
+        // echo "home/about<br>";
         $this->view('home/about');
     }
     public function OurServices(){
@@ -32,7 +32,7 @@ class Home extends Controller
         {
             header("Location: ../user/index");
         }
-        echo "home/ourservices<br>";
+        // echo "home/ourservices<br>";
         $this->view('home/ourservices');
     }
 

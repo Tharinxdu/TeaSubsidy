@@ -94,7 +94,12 @@ select {
     /* align-items: center; */
 }
 .alitems{
+    display: flex;
     align-items: flex-start;
+}
+.alignCenter{
+    display: flex;
+    align-items: center !important ;
 }
 
 
@@ -220,6 +225,12 @@ select {
 .details:nth-child(7){
     margin-bottom: 50px;
 }
+.displayHalfHeight{
+    height: 50vh;
+}
+.displayHeight{
+    height: 100vh;
+}
 
 .flex-body{
     display: flex;
@@ -272,12 +283,15 @@ h1.main-heading{
 }
 
 .justifyCenter{
+    display: flex;
     justify-content: center;
 }
 .justifyStart{
+    display: flex;
     justify-content:flex-start;
 }
 .justifyAround{
+    display: flex;
     justify-content:space-around;
 }
 
@@ -365,7 +379,10 @@ div.msg{
     margin: 20px 30px 10px;
 }
 .marginTopBottom{
-    margin: 3rem 0 !important;
+    margin: 3rem 2rem !important;
+}
+.fBasis50{
+    flex-basis: 50%;
 }
 .mr0{
     margin: 0;
@@ -516,6 +533,10 @@ div.red{
     justify-content: space-around;
     width: 300px;
 }
+.services-card{
+    height: 200px;
+    width: 500px;
+}
 .sign-btn{
     padding: 5px 15px;
     border-radius: 10px;
@@ -542,6 +563,19 @@ div.red{
 .small{
     width: 100px;
     height: 30px;
+}
+.solidBorderMedium{
+    border: solid 2px #003554;
+    border-radius: 10px;
+}
+.textBold{
+    font-weight: bold;
+}
+.textCenter{
+    text-align: center;
+}
+.textLeft{
+    text-align: left;
 }
 
 .vr{
