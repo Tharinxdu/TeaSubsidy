@@ -16,7 +16,7 @@ class Home extends Controller
         {
             header("Location: ../user/index");
         }
-        echo "home/regionaloffices<br>";
+        // echo "home/regionaloffices<br>";
         $this->view('home/regionaloffices');
     }
     public function about(){

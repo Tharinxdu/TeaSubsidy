@@ -205,6 +205,9 @@ select {
 .center{
     align-self: center;
 }
+.default-blue{
+    color: #003554 !important;
+}
 .details{
     display: flex;
     justify-content: space-between;
@@ -273,6 +276,9 @@ h1.main-heading{
 }
 .justifyStart{
     justify-content:flex-start;
+}
+.justifyAround{
+    justify-content:space-around;
 }
 
 .large{
@@ -357,6 +363,9 @@ div.msg{
     /* width: 100%; */
     border-radius: 5px;
     margin: 20px 30px 10px;
+}
+.marginTopBottom{
+    margin: 3rem 0 !important;
 }
 .mr0{
     margin: 0;
