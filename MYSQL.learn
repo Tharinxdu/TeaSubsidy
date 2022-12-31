@@ -1,0 +1,8 @@
+Problem:
+When searching forstring / patial string in MYSQL with like , it will match case-insensitively by default.
+Solution:
+SELECT name FROM users WHERE name LIKE BINARY 't%';       Use Binary(cast to binary and compare byte to byte)
+problem:
+What a column in a particular table dio?
+Answer:
+Check comments in table structure PHPmyadmin page. Also you can contribute to comments.

@@ -272,6 +272,30 @@ class HeadOffice extends Controller
         
     }
 
+    public function clients_Information(){
+        /*
+            show all regions again. but with different details - Regioan - District - number of clients e.t.c.
+            can search for region office
+        */
+    }
+
+    public function view_Clients($regionId){
+        /*
+            get the regioan number search for all the clients in that region.
+            get query result.
+            display here with client id grab with each client somehow(cookie or hidden form)
+            can search for a client using (name or id)
+        */
+    }
+    
+    public function client_Details($clientId){
+        /*
+            using clId get all client details.
+            display personal Details , Land details , Reports (prev)
+            name and regional office is heading & Tea inspector should be there.
+        */
+    }
+
 }
 
 ?>

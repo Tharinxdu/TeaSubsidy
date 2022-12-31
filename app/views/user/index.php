@@ -47,8 +47,8 @@
                     <div class="btn card-header">Manage Tea Plant Suppliers</div>
                 </a>
             </div>
-        </div>
-        <div class="flex-body justifyStart">
+        <!-- </div>
+        <div class="flex-body justifyStart"> -->
             <div class="card">
                 <a class="box" href="">
                     <div class="card-image">
